@@ -3,13 +3,13 @@ class ListsController < ApplicationController
 
   # GET /lists
   def index
-    @lists = List.all
+    @lists = current_user.lists
     json_response(@lists)
   end
 
   # POST /lists
   def create
-    @list = List.create!(list_params)
+    @list = current_user.lists.create!(list_params)
     json_response(@list, :created)
   end
 
@@ -33,7 +33,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.permit(:title, :created_by)
+    params.permit(:title)
   end
 
   def set_list

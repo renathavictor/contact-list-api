@@ -1,14 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe 'Contacts API' do
-  let!(:list) { create(:list) }
+  let(:user) { create(:user) }
+  let!(:list) { create(:list, created_by: user.id) }
   let!(:contacts) { create_list(:contact, 20, list_id: list.id) }
   let(:list_id) { list.id }
   let(:id) { contacts.first.id }
+  let(:headers) { valid_headers }
 
   # Test suite for GET /lists/:list_id/contacts
   describe 'GET /lists/:list_id/contacts' do
-    before { get "/lists/#{list_id}/contacts" }
+    before { get "/lists/#{list_id}/contacts", params: {}, headers: headers }
 
     context 'when list exists' do
       it 'returns status code 200' do
@@ -35,7 +37,7 @@ RSpec.describe 'Contacts API' do
 
   # Test suite for GET /lists/:list_id/contacts/:id
   describe 'GET /lists/:list_id/contacts/:id' do
-    before { get "/lists/#{list_id}/contacts/#{id}" }
+    before { get "/lists/#{list_id}/contacts/#{id}", params: {}, headers: headers }
 
     context 'when list contact exists' do
       it 'returns status code 200' do
@@ -62,10 +64,10 @@ RSpec.describe 'Contacts API' do
 
   # Test suite for POST /lists/:list_id/contacts
   describe 'POST /lists/:list_id/contacts' do
-    let(:valid_attributes) {{ name: 'Michael Scott', email: 'michaelscott@email.com' }}
+    let(:valid_attributes) { { name: 'Michael Scott', email: 'michaelscott@email.com' }.to_json }
 
     context 'when request attributes are valid' do
-      before { post "/lists/#{list_id}/contacts", params: valid_attributes }
+      before { post "/lists/#{list_id}/contacts", params: valid_attributes, headers: headers }
 
       it 'returns status code 201' do
         expect(response).to have_http_status(201)
@@ -73,7 +75,7 @@ RSpec.describe 'Contacts API' do
     end
 
     context 'when an invalid request' do
-      before { post "/lists/#{list_id}/contacts", params: {} }
+      before { post "/lists/#{list_id}/contacts", params: {}, headers: headers }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -87,9 +89,9 @@ RSpec.describe 'Contacts API' do
 
   # Test suite for PUT /lists/:list_id/contact/:id
   describe 'PUT /lists/:list_id/contacts/:id' do
-    let(:valid_attributes) {{ name: 'Michael Scott' }}
+    let(:valid_attributes) { { name: 'Michael Scott' }.to_json }
 
-    before { put "/lists/#{list_id}/contacts/#{id}", params: valid_attributes }
+    before { put "/lists/#{list_id}/contacts/#{id}", params: valid_attributes, headers: headers }
 
     context 'when contact exists' do
       it 'returns status code 204' do
@@ -117,7 +119,7 @@ RSpec.describe 'Contacts API' do
 
   # Test suite for DELETE /lists/:list_id/contacts/:id
   describe 'DELETE /lists/:list_id/contacts/:id' do
-    before { delete "/lists/#{list_id}/contacts/#{id}" }
+    before { delete "/lists/#{list_id}/contacts/#{id}", params: {}, headers: headers }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
