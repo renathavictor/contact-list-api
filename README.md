@@ -17,7 +17,9 @@
 ### Serializer
 
 * [active_model_serializers](https://github.com/rails-api/active_model_serializers)
-  
+
+### Paginação
+* [will_paginate](https://github.com/mislav/will_paginate)
 ### Para Iniciar a aplicação  
  
 > rails s

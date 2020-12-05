@@ -3,7 +3,7 @@ class ListsController < ApplicationController
 
   # GET /lists
   def index
-    @lists = current_user.lists
+    @lists = current_user.lists.paginate(page: params[:page], per_page: 10)
     json_response(@lists)
   end
 
