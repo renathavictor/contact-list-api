@@ -18,7 +18,11 @@
 
 * [active_model_serializers](https://github.com/rails-api/active_model_serializers)
   
-### Testes
+### Para Iniciar a aplicação  
+ 
+> rails s
+ 
+### Para rodar os Testes
 
 > bundle exec rspec
 
