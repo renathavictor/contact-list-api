@@ -6,6 +6,11 @@ class AuthenticationController < ApplicationController
     json_response(auth_token: auth_token)
   end
 
+  def logout
+    reset_session
+    render json: { status: 200, logged_out: true }
+  end
+
   private
 
   def auth_params
