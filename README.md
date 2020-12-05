@@ -14,6 +14,10 @@
 * [bcrypt](https://github.com/codahale/bcrypt-ruby) - para manter o password seguro
 * [jwt](https://github.com/jwt/ruby-jwt) - gerenciar web tokens
 
+### Serializer
+
+* [active_model_serializers](https://github.com/rails-api/active_model_serializers)
+  
 ### Testes
 
 > bundle exec rspec

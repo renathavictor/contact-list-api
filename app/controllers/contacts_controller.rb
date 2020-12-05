@@ -33,7 +33,7 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.permit(:name, :done)
+    params.permit(:name, :email, :phone)
   end
 
   def set_list
