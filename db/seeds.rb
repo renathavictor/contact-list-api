@@ -19,14 +19,7 @@ user = User.create([
 
 list = List.create([
   {
-    "title": "Work Friends"
-  }
-])
-
-contact = Contact.create([
-  {
-    "name": "John",
-    "email": "john@email.com",
-    "phone": "(555) 4564-1234"
+    "title": "Work Friends",
+    "created_by": User.first.id
   }
 ])

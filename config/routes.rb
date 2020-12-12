@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   end
 
   post 'auth/login', to: 'authentication#authenticate'
-  delete 'logout', to: 'authentication#logout'
-  post 'signup', to: 'users#create'
+  delete 'auth/logout', to: 'authentication#logout'
+  post 'users/signup', to: 'users#create'
 end

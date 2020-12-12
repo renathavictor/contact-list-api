@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :update, :destroy]
+  # before_action :authorize_request
 
   # GET /lists
   def index
@@ -10,11 +11,14 @@ class ListsController < ApplicationController
   # POST /lists
   def create
     @list = current_user.lists.create!(list_params)
+    # p list_params
     json_response(@list, :created)
   end
 
   # GET /lists/:id
   def show
+    @lists = current_user.lists
+    # p current_user
     json_response(@list)
   end
 
@@ -37,6 +41,10 @@ class ListsController < ApplicationController
   end
 
   def set_list
+    @list = List.find(params[:id])
+  end
+
+  def set_list_user
     @list = List.find(params[:id])
   end
 end

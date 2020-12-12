@@ -19,6 +19,10 @@ test:
   <<: *default
   database: app_test
 
-# production:
-#   <<: *default
-#   database: db/production
+production:
+  <<: *default
+  database: <%= ENV['APP_DATABASE_NAME'] %>
+  username: <%= ENV['APP_DATABASE_USERNAME'] %>
+  host: <%= ENV['APP_DATABASE_HOST'] %>
+  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+  port: <%= ENV['APP_DATABASE_PORT'] %>
