@@ -26,7 +26,8 @@ class ListsController < ApplicationController
   # PUT /lists/:id
   def update
     @list.update(list_params)
-    head :no_content
+    # head :no_content
+    json_response(@list)
   end
 
   # DELETE /lists/:id
