@@ -6,7 +6,7 @@ class AuthenticationController < ApplicationController
     json_response(auth_token: auth_token)
   end
 
-  def logged 
+  def logged
     render json: { user: current_user, status: 200 }
   end
 

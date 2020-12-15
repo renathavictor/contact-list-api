@@ -4,6 +4,8 @@ class AuthorizeApiRequest
   end
 
   def call
+    p user
+    p '0000000000000'
     {
       user: user
     }

@@ -22,7 +22,7 @@ test:
 production:
   <<: *default
   database: <%= ENV['DATABASE_URL'] %>
-  # username: <%= ENV['DATABASE_USERNAME'] %>
-  # host: <%= ENV['DATABASE_HOST'] %>
-  # password: <%= ENV['DATABASE_PASSWORD'] %>
-  # port: <%= ENV['DATABASE_PORT'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  password: <%= ENV['SECRET_KEY_BASE'] %>
+  port: <%= ENV['DATABASE_PORT'] %>

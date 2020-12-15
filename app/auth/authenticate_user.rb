@@ -10,7 +10,7 @@ class AuthenticateUser
 
   private
 
-  attr_reader :email, :password
+  attr_accessor :email, :password
 
   # verify user credentials
   def user

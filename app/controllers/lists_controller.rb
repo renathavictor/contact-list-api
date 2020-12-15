@@ -12,14 +12,12 @@ class ListsController < ApplicationController
   # POST /lists
   def create
     @list = current_user.lists.create!(list_params)
-    # p list_params
     json_response(@list, :created)
   end
 
   # GET /lists/:id
   def show
     @lists = current_user.lists
-    # p current_user
     json_response(@list)
   end
 
