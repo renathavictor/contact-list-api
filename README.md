@@ -14,16 +14,10 @@
 * [bcrypt](https://github.com/codahale/bcrypt-ruby) - para manter o password seguro
 * [jwt](https://github.com/jwt/ruby-jwt) - gerenciar web tokens
 
-### Serializer
+### Para Iniciar a aplicação
 
-* [active_model_serializers](https://github.com/rails-api/active_model_serializers)
-
-### Paginação
-* [will_paginate](https://github.com/mislav/will_paginate)
-### Para Iniciar a aplicação  
- 
 > rails s
- 
+
 ### Para rodar os Testes
 
 > bundle exec rspec

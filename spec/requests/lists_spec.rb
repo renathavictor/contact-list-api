@@ -6,7 +6,6 @@ RSpec.describe 'Lists API', type: :request do
   let(:list_id) { lists.first.id }
   let(:headers) { valid_headers }
 
-  # Test suite for GET /lists
   describe 'GET /lists' do
     before { get '/lists', params: {}, headers: headers }
 
@@ -47,7 +46,6 @@ RSpec.describe 'Lists API', type: :request do
     end
   end
 
-  # Test suite for POST /lists
   describe 'POST /lists' do
     let(:valid_attributes) do
       { title: 'Work Friends', created_by: user.id.to_s }.to_json
@@ -79,7 +77,6 @@ RSpec.describe 'Lists API', type: :request do
     end
   end
 
-  # Test suite for PUT /lists/id
   describe 'PUT /lists/:id' do
     let(:valid_attributes) { { title: 'Party Friends' }.to_json }
 
@@ -92,7 +89,6 @@ RSpec.describe 'Lists API', type: :request do
     end
   end
 
-  #  Test suite for DELETE /lists/:id
   describe 'DELETE /lists/:id' do
     before { delete "/lists/#{list_id}", params: {}, headers: headers }
 
