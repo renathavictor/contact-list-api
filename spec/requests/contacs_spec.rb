@@ -8,7 +8,6 @@ RSpec.describe 'Contacts API' do
   let(:id) { contacts.first.id }
   let(:headers) { valid_headers }
 
-  # Test suite for GET /lists/:list_id/contacts
   describe 'GET /lists/:list_id/contacts' do
     before { get "/lists/#{list_id}/contacts", params: {}, headers: headers }
 
@@ -35,7 +34,6 @@ RSpec.describe 'Contacts API' do
     end
   end
 
-  # Test suite for GET /lists/:list_id/contacts/:id
   describe 'GET /lists/:list_id/contacts/:id' do
     before { get "/lists/#{list_id}/contacts/#{id}", params: {}, headers: headers }
 
@@ -62,7 +60,6 @@ RSpec.describe 'Contacts API' do
     end
   end
 
-  # Test suite for POST /lists/:list_id/contacts
   describe 'POST /lists/:list_id/contacts' do
     let(:valid_attributes) { { name: 'Michael Scott', email: 'michaelscott@email.com' }.to_json }
 
@@ -87,7 +84,6 @@ RSpec.describe 'Contacts API' do
     end
   end
 
-  # Test suite for PUT /lists/:list_id/contact/:id
   describe 'PUT /lists/:list_id/contacts/:id' do
     let(:valid_attributes) { { name: 'Michael Scott' }.to_json }
 
@@ -117,7 +113,6 @@ RSpec.describe 'Contacts API' do
     end
   end
 
-  # Test suite for DELETE /lists/:list_id/contacts/:id
   describe 'DELETE /lists/:list_id/contacts/:id' do
     before { delete "/lists/#{list_id}/contacts/#{id}", params: {}, headers: headers }
 

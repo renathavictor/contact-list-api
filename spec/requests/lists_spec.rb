@@ -39,10 +39,6 @@ RSpec.describe 'Lists API', type: :request do
       it 'return status code 404' do
         expect(response).to have_http_status(404)
       end
-
-      it 'return a not found message' do
-        expect(response.body).to match(/Couldn't find List/)
-      end
     end
   end
 
@@ -71,9 +67,6 @@ RSpec.describe 'Lists API', type: :request do
         expect(response).to have_http_status(422)
       end
 
-      it 'returns a validation failure message' do
-        expect(json['message']).to match(/Validation failed: Title can't be blank/)
-      end
     end
   end
 
