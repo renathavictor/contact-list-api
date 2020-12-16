@@ -1,6 +1,6 @@
 # Lista de Contatos
 
-## Frontend da aplicação
+## Backend da aplicação
 
 Aplicação para projeto da disciplina RAD - IFPB
 \
