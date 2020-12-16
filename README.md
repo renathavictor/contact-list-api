@@ -1,5 +1,10 @@
 # Lista de Contatos
 
+## Frontend da aplicação
+
+Aplicação para projeto da disciplina RAD - IFPB
+\
+
 ## Algumas Dependências
 
 ### Para testes
